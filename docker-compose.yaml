@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"  # 将Docker内部的8000端口映射到主机的8000端口
+    environment:
+      - DJANGO_SECRET_KEY=WXzhaoyue961113  # Django的秘钥
+    volumes:
+      - .:/app  # 将项目目录挂载到Docker容器中
+  db:
+    image: postgres:16  # 使用Postgres 16版本
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1996
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # 持久化数据库数据
+
+volumes:
+  postgres_data:  # 定义数据卷

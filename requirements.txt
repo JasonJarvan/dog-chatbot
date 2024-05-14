@@ -1,0 +1,4 @@
+Django>=4.1,<5  # Django 版本范围
+gunicorn>=20.1  # WSGI 服务器
+requests>=2.26  # 用于 HTTP 请求
+psycopg2>=2.9  # PostgreSQL 驱动程序
